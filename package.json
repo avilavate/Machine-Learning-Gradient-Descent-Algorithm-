@@ -1,0 +1,21 @@
+{
+  "name": "gradient-descent",
+  "version": "1.0.0",
+  "description": "A work-bench to implement gradient-descent algorithem ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gradient",
+    "descent",
+    "machine",
+    "learning"
+  ],
+  "author": "Avil",
+  "license": "ISC",
+  "dependencies": {
+    "cli-graph": "^3.2.2",
+    "mathjs": "^3.11.5"
+  }
+}
