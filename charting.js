@@ -15,7 +15,7 @@ exports.draw = (x,y) => {
     // });
     // console.log(g1.toString());
 
-    var heart = new CliGraph({ height: 25, width: 20 });
+    var heart = new CliGraph({ height: 40, width: 40 });
 
     // Add points
     x.forEach((i,index) => {

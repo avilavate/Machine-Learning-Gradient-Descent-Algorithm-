@@ -2,42 +2,35 @@
 
 var gradient_descent = require('./gradient-descent.js');
 var charts = require('./charting.js');
+var round = require('./round.js');
 
-let theta = 5, prev = 0, current, w = .5;
-let costs = [];
-let jThetas = [];
+let theta = 3, prev = 0, current, w = .1;
+let costs = [], jThetas = [], costFunctionJ = '3x', iterations = 40;
+
 jThetas.push(theta);
-let costFunctionJ = 'x2+3';
 prev = gradient_descent.nextCost(costFunctionJ, theta);
-let iterations = 500;
 
 while (iterations--) {
-    costs.push(prev);
-    jThetas.push(theta);
-    if (prev == 0) {
-        console.log("Found..." + prev);
+    prev = round.round(prev);
+    current = round.round(current);
+    if (prev == 0 || current < 0) {
+        console.log("found..." + jThetas[jThetas.length - 1]);
         break;
     }
-    theta = theta - w;
-    //  jThetas.push(theta);
+    theta = round.round(theta - w);
+    costs.push(prev);
+    jThetas.push(theta);
     prev = current;
     current = gradient_descent.nextCost(costFunctionJ, theta);
+    console.log(prev + " : " + current + " : " + theta);
     if (Math.abs(current) > Math.abs(prev)) {
-        w = -1 * w;
+        w = (-1) * w;
     }
 }
-console.log(costs);
-console.log(jThetas);
+
 var jthetaVal = jThetas.map(t => {
     return t * t;
 });
-console.log(jthetaVal);
-// costs = costs.filter(e => {
-//     if (e != undefined) return e;
-// })
-// jThetas = jThetas.filter(e => {
-//     if (e != undefined) return e;
-// })
-//charts.draw(costs, jThetas);
-//console.log(costs);
-charts.draw(jThetas, jthetaVal);
+//console.log("Theta Value where Cost funstion is minium: "+ jThetas);
+charts.draw([0, 1, 2, 3], [0,3,6,9]);
+//charts.draw([0, 1, 2, 3], [0,]);
