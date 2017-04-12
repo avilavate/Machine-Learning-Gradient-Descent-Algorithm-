@@ -2,28 +2,13 @@ var CliGraph = require("cli-graph");
 
 var exports = module.exports = {};
 
-exports.draw = (x,y) => {
-    //console.log("drawing: " + inputs);
-    // var g1 = new CliGraph({
-    //     height: 20
-    //     , width: 20
-    //     , center: { y: 18 }
-    // }).setFunctionX(function (x) {
-    //     x = (inputs.pop()* inputs.pop())/5;
-    //     console.log("x-axis: " + x)
-    //     return x;
-    // });
-    // console.log(g1.toString());
-
+exports.draw = (x, y) => {
     var heart = new CliGraph({ height: 40, width: 40 });
 
     // Add points
-    x.forEach((i,index) => {
-        heart.addPoint(
-           i
-            ,y[index]
-        );
-    });
+    for (let i = 0; i < y.length; i++) {
+        heart.addPoint(x[i], y[i]);
+    }
     console.log(heart.toString());
 
 }
